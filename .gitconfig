@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/masaya/.gitignore
+	excludesfile = ~/.gitignore
 	editor = emacs
 [user]
 	name = nasum
