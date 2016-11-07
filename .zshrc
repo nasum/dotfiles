@@ -163,3 +163,4 @@ esac
 
 # vim:set ft=zsh:
 export PATH="/usr/local/sbin:$PATH"
+export LESS='-g -i -M -R -S -W -z-4 -x4'
