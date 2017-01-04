@@ -125,6 +125,8 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
+alias emacs='emacs -nw'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
@@ -164,3 +166,4 @@ esac
 # vim:set ft=zsh:
 export PATH="/usr/local/sbin:$PATH"
 export LESS='-g -i -M -R -S -W -z-4 -x4'
+
