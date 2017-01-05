@@ -1,0 +1,2 @@
+unbind p
+bind p run "tmux save-buffer - | pbcopy"
