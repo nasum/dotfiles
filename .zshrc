@@ -167,3 +167,5 @@ esac
 export PATH="/usr/local/sbin:$PATH"
 export LESS='-g -i -M -R -S -W -z-4 -x4'
 
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
