@@ -169,3 +169,20 @@ export LESS='-g -i -M -R -S -W -z-4 -x4'
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+
+export GOPATH="$HOME/.go"
+export PATH=$PATH:$HOME/.go/bin
+
+export PATH="$HOME/bin:$PATH"
+
+########################################
+# peco
+function peco-history-selection() {
+    #linux用設定
+    BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
