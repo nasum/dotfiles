@@ -186,3 +186,22 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
+function peco-src() {
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+	BUFFER="cd ${selected_dir}"
+	zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
+function peco-select-docker-id(){
+    BUFFER=`docker ps | tail -n +2 | peco | cut -d" " -f1`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-select-docker-id
+bindkey '^di' peco-select-docker-id
