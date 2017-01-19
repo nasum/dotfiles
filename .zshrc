@@ -167,8 +167,10 @@ esac
 export PATH="/usr/local/sbin:$PATH"
 export LESS='-g -i -M -R -S -W -z-4 -x4'
 
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+if  [ -x "`which anyenv`" ]; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+fi
 
 export GOPATH="$HOME/.go"
 export PATH=$PATH:$HOME/.go/bin
@@ -205,3 +207,19 @@ function peco-select-docker-id(){
 }
 zle -N peco-select-docker-id
 bindkey '^di' peco-select-docker-id
+
+function peco-find-file() {
+    if git rev-parse 2> /dev/null; then
+        source_files=$(git ls-files)
+    else
+        source_files=$(find . -type f)
+    fi
+    selected_files=$(echo $source_files | peco --prompt "[find file]")
+
+    BUFFER="${BUFFER}${echo $selected_files | tr '\n' ' '}"
+    CURSOR=$#BUFFER
+    zle redisplay
+}
+zle -N peco-find-file
+
+bindkey '^f' peco-find-file
