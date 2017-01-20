@@ -223,3 +223,11 @@ function peco-find-file() {
 zle -N peco-find-file
 
 bindkey '^f' peco-find-file
+
+function peco-my-repo() {
+    BUFFER=`curl https://api.github.com/users/nasum/repos | jq -r '.[].git_url' | peco | xargs ghq get`
+    zle clear-prompt
+}
+
+zle -N peco-my-repo
+bindkey '^mr' peco-my-repo
