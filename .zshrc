@@ -224,4 +224,4 @@ zle -N peco-find-file
 
 bindkey '^f' peco-find-file
 
-alias MR="curl https://api.github.com/users/nasum/repos | jq -r '.[].git_url' | peco | xargs ghq get"
+alias MR="curl https://api.github.com/users/nasum/repos | jq -r '.[].clone_url' | peco | xargs ghq get"
