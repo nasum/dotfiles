@@ -167,10 +167,8 @@ esac
 export PATH="/usr/local/sbin:$PATH"
 export LESS='-g -i -M -R -S -W -z-4 -x4'
 
-if  [ -x "`which anyenv`" ]; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
-fi
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 
 export GOPATH="$HOME/.go"
 export PATH=$PATH:$HOME/.go/bin
@@ -225,3 +223,6 @@ zle -N peco-find-file
 bindkey '^f' peco-find-file
 
 alias MR="curl https://api.github.com/users/nasum/repos | jq -r '.[].clone_url' | peco | xargs ghq get"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
