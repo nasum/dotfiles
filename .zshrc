@@ -119,7 +119,6 @@ setopt extended_glob
 alias la='ls -a'
 alias ll='ls -l'
 
-alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
@@ -133,6 +132,8 @@ alias sudo='sudo '
 # グローバルエイリアス
 alias -g L='| less'
 alias -g G='| grep'
+
+alias diff='colordiff'
 
 # C で標準出力をクリップボードにコピーする
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
@@ -170,16 +171,16 @@ export LESS='-g -i -M -R -S -W -z-4 -x4'
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
-export GOPATH="$HOME/.go"
-export PATH=$PATH:$HOME/.go/bin
+export GOPATH="$HOME"
 
 export PATH="$HOME/bin:$PATH"
+export PATH=/usr/local/git/bin:$PATH
 
 ########################################
 # peco
 function peco-history-selection() {
     #linux用設定
-    BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -226,3 +227,11 @@ alias MR="curl https://api.github.com/users/nasum/repos | jq -r '.[].clone_url' 
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/masaya/.config/yarn/global/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/masaya/.config/yarn/global/node_modules/tabtab/.completions/electron-forge.zshexport PATH="/usr/local/opt/libxml2/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/masaya/.sdkman"
+[[ -s "/Users/masaya/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/masaya/.sdkman/bin/sdkman-init.sh"
