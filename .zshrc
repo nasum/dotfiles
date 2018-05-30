@@ -228,7 +228,7 @@ alias MR="curl https://api.github.com/users/nasum/repos | jq -r '.[].clone_url' 
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/masaya/.config/yarn/global/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/masaya/.config/yarn/global/node_modules/tabtab/.completions/electron-forge.zshexport PATH="/usr/local/opt/libxml2/bin:$PATH"
+#[[ -f /Users/masaya/.config/yarn/global/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/masaya/.config/yarn/global/node_modules/tabtab/.completions/electron-forge.zshexport PATH="/usr/local/opt/libxml2/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/masaya/.sdkman"
