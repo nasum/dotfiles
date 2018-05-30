@@ -171,7 +171,6 @@ export LESS='-g -i -M -R -S -W -z-4 -x4'
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
-
 export GOPATH="$HOME"
 
 export PATH="$HOME/bin:$PATH"
@@ -225,6 +224,9 @@ zle -N peco-find-file
 bindkey '^f' peco-find-file
 
 alias MR="curl https://api.github.com/users/nasum/repos | jq -r '.[].clone_url' | peco | xargs ghq get"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
