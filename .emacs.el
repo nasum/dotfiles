@@ -47,3 +47,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; コマンドキーをMetaに割り当てる
+(when (eq system-type 'darwin)
+  (setq ns-command-modifier (quote meta)))
