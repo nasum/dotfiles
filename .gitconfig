@@ -3,7 +3,7 @@
 	editor = emacs
 [user]
 	name = nasum
-	email = nasu@scouty.co.jp
+	email = tomato.wonder.life@gmail.com
 [push]
 	default = matching
 [alias]
@@ -21,3 +21,6 @@
 	diff = auto
 	status = auto
 	branch = auto
+
+[includeIf "gitdir:~/src/github.com/scouty-inc/"]
+  path = ~/.gitconfig-work
