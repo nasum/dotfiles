@@ -9,18 +9,26 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	graph = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	delete-merged-branch = branch --merged | grep -v develop | grep -v master | xargs git branch -D
+	delete-merged-branch = "branch --merged | grep -v develop | grep -v master | xargs git branch -D"
 	bt = "branch -v --sort=authordate"
 	open = !hub browse -- pull/$(git symbolic-ref --short HEAD)
     ch = checkout
     chb = checkout -b
     m = checkout master
+    co = checkout
+    current-branch = ! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
+    force-pull = !git fetch && git reset --hard origin/$(git current-branch)
 [ghq]
 	root = ~/src
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+
 
 [includeIf "gitdir:~/src/github.com/scouty-inc/"]
   path = ~/.gitconfig-work
